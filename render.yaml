@@ -3,23 +3,21 @@ services:
   - type: web
     name: flowtask-backend
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     rootDir: backend
-    disk:
-      name: sqlite-data
-      mountPath: /data
-      sizeGB: 1
     envVars:
       - key: DATABASE_URL
-        value: sqlite:////data/tasks.db
+        sync: false
 
-  # Frontend Next.js service
-  - type: web
+  # Frontend Next.js service (Static Site)
+  - type: static
     name: flowtask-frontend
-    env: node
+    env: static
+    plan: free
     buildCommand: npm run build
-    startCommand: npm run start
+    publishDir: out
     rootDir: frontend
     envVars:
       - key: NEXT_PUBLIC_API_URL
