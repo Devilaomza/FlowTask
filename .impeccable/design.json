@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-11T08:49:00Z",
+  "title": "Design System: FlowTask",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Console Indigo",
+        "canonical": "oklch(60.7% 0.197 268)",
+        "tonalRamp": [
+          "oklch(20% 0.05 268)",
+          "oklch(30% 0.10 268)",
+          "oklch(40% 0.15 268)",
+          "oklch(50% 0.18 268)",
+          "oklch(60.7% 0.197 268)",
+          "oklch(70% 0.16 268)",
+          "oklch(80% 0.12 268)",
+          "oklch(95% 0.03 268)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Focus Purple",
+        "canonical": "oklch(57.8% 0.229 296)",
+        "tonalRamp": [
+          "oklch(20% 0.05 296)",
+          "oklch(30% 0.10 296)",
+          "oklch(40% 0.15 296)",
+          "oklch(50% 0.20 296)",
+          "oklch(57.8% 0.229 296)",
+          "oklch(70% 0.18 296)",
+          "oklch(80% 0.13 296)",
+          "oklch(95% 0.03 296)"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Deep Slate Canvas",
+        "canonical": "#020617",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Application title / hero display only."
+      },
+      "body": {
+        "displayName": "Body Copy",
+        "purpose": "Standard task details, info, and inputs."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-shadow",
+        "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        "purpose": "Standard subtle shadow for buttons and inputs."
+      },
+      {
+        "name": "elevated-hover",
+        "value": "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        "purpose": "Dynamic shadow applied during card hover events to simulate elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Standard action trigger for adding tasks and executing major operations.",
+      "html": "<button class=\"ds-btn-primary\">Add Task</button>",
+      "css": ".ds-btn-primary { background: #6366f1; color: #f1f5f9; padding: 10px 20px; font-weight: 600; border: none; border-radius: 12px; transition: background-color 0.2s, transform 0.1s; cursor: pointer; } .ds-btn-primary:hover { background: #a855f7; } .ds-btn-primary:active { transform: scale(0.98); }"
+    },
+    {
+      "name": "Task Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Container representing an individual task, displaying title and status.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Create Implementation Plan</h3><p class=\"ds-card-desc\">Draft the initial PRODUCT.md and DESIGN.md files.</p></div>",
+      "css": ".ds-card { background: #0f172a; border: 1px solid #1e293b; padding: 24px; border-radius: 16px; transition: border-color 0.2s, box-shadow 0.2s; } .ds-card:hover { border-color: #334155; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); } .ds-card-title { color: #f1f5f9; margin: 0 0 8px 0; font-size: 1rem; font-weight: 600; } .ds-card-desc { color: #94a3b8; margin: 0; font-size: 0.875rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Focused Console",
+    "overview": "The Focused Console is a dark, low-distraction HUD environment with precise controls and typography. It is engineered specifically for tech-focused professionals and developers who require a workspace that fosters flow state and expert control.",
+    "keyCharacteristics": [
+      "Dark HUD styling with a deep canvas background (slate-950).",
+      "Pure high-contrast typography and subtle dividers to define structure.",
+      "High utility with tactile and confident interaction states.",
+      "Calm and purposeful motion with clean fade/slide transitions."
+    ],
+    "rules": [
+      {
+        "name": "The Rarity Accent Rule",
+        "body": "Indigo and Purple accents are used sparingly (≤10% of total surface area). Their rarity is the point—ensuring that primary CTAs and active states command immediate attention.",
+        "section": "colors"
+      },
+      {
+        "name": "The Resting Flat Rule",
+        "body": "Elements rest flat on the Console Surface at z-index 0. Shadows and glow effects are only triggered dynamically by hover, focus, or overlay states.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do maintain a strict contrast ratio of at least 4.5:1 for body and placeholder texts against their backgrounds.",
+      "Do use native dialog tags and absolute positioning to prevent element clipping in overflow contexts.",
+      "Do align components to a consistent 8px/16px/24px spacing grid."
+    ],
+    "donts": [
+      "Don't use colored left/right side-stripe borders as highlights on cards or task elements.",
+      "Don't apply text gradients or gradient-to-transparent text masking.",
+      "Don't animate image scale or rotate transformations on hover.",
+      "Don't use cream, beige, paper, or ivory background tones."
+    ]
+  }
+}
