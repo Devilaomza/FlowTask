@@ -12,12 +12,12 @@ services:
         sync: false
 
   # Frontend Next.js service (Static Site)
-  - type: static
+  - type: web
     name: flowtask-frontend
-    env: static
+    runtime: static
     plan: free
     buildCommand: npm run build
-    publishDir: out
+    staticPublishPath: out
     rootDir: frontend
     envVars:
       - key: NEXT_PUBLIC_API_URL
